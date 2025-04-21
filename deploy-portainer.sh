@@ -3,8 +3,6 @@
 # Deploy Portainer using Docker Compose
 echo "🚀 Deploying Portainer..."
 cat > ~/homelab/portainer/docker-compose.yml << 'EOF'
-version: '3'
-
 services:
   portainer:
     image: portainer/portainer-ce:latest
@@ -24,7 +22,7 @@ services:
 
 networks:
   homelab:
-    driver: bridge
+    external: true
 EOF
 
 # Create a directory for Portainer data
@@ -33,4 +31,8 @@ mkdir -p ~/homelab/portainer/data
 # Start Portainer
 echo "🚀 Starting Portainer..."
 cd ~/homelab/portainer
-docker-compose up -d
+
+# This lets you run Docker without needing sudo every time
+sudo usermod -aG docker $USER
+
+docker compose up -d
