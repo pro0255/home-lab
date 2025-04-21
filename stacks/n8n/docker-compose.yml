@@ -6,29 +6,22 @@ services:
     container_name: n8n
     restart: unless-stopped
     ports:
-      # Internal port for use with Cloudflare Tunnel
       - "5678:5678"
     environment:
-      - N8N_BASIC_AUTH_ACTIVE=${N8N_BASIC_AUTH_ACTIVE:-true}
-      - N8N_BASIC_AUTH_USER=${N8N_BASIC_AUTH_USER:-admin}
-      - N8N_BASIC_AUTH_PASSWORD=${N8N_BASIC_AUTH_PASSWORD:-changeMe}
-      - N8N_HOST=${N8N_HOST:-n8n.yourdomain.com}
-      - N8N_PORT=${N8N_PORT:-5678}
-      - N8N_PROTOCOL=${N8N_PROTOCOL:-https}
-      # - N8N_ENCRYPTION_KEY=${N8N_ENCRYPTION_KEY:-changeThisKeyToSomethingRandomAndSecure}
-      - TZ=${TZ:-UTC}
-      # Database configuration (optional)
-      # - DB_TYPE=${DB_TYPE:-}
-      # - DB_POSTGRESDB_HOST=${DB_POSTGRESDB_HOST:-}
-      # - DB_POSTGRESDB_PORT=${DB_POSTGRESDB_PORT:-}
-      # - DB_POSTGRESDB_DATABASE=${DB_POSTGRESDB_DATABASE:-}
-      # - DB_POSTGRESDB_USER=${DB_POSTGRESDB_USER:-}
-      # - DB_POSTGRESDB_PASSWORD=${DB_POSTGRESDB_PASSWORD:-}
+      - N8N_HOST=${N8N_HOST}
+      - WEBHOOK_TUNNEL_URL=${WEBHOOK_TUNNEL_URL}
+      - WEBHOOK_URL=${WEBHOOK_URL}
+      - N8N_BASIC_AUTH_ACTIVE=${N8N_BASIC_AUTH_ACTIVE}
+      - N8N_BASIC_AUTH_USER=${N8N_BASIC_AUTH_USER}
+      - N8N_BASIC_AUTH_PASSWORD=${N8N_BASIC_AUTH_PASSWORD}
+      - N8N_PORT=${N8N_PORT}
+      - N8N_PROTOCOL=${N8N_PROTOCOL}
+      - TZ=${TZ}
     volumes:
-      - ./data:/home/node/.n8n
+      - ${DATA_DIR}:/root/.n8n
     networks:
       - homelab
 
 networks:
   homelab:
-    external: true 
+    external: true
