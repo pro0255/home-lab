@@ -1,0 +1,1 @@
+- https://mfyz.medium.com/portainer-gitops-%EF%B8%8F-a-simple-way-to-deploy-and-manage-your-self-hosted-applications-2285dcf235c6

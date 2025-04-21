@@ -1,0 +1,44 @@
+# Service Name Stack
+
+Brief description of what this service does and why it's useful for your home lab.
+
+## 🚀 Setup with GitOps
+
+To deploy this stack via GitOps in Portainer:
+
+1. Add this directory to your Git repository
+2. In Portainer, go to Stacks → Add stack
+3. Select "Git repository" as the build method
+4. Enter your repository details
+5. Set the Compose path to `stacks/service-name/docker-compose.yml`
+6. Deploy the stack
+
+## ⚙️ Configuration
+
+Before deploying:
+
+1. Copy any example files (like `.env.example` to `.env`)
+2. Modify the configuration values:
+   - Configuration option 1
+   - Configuration option 2
+   - Configuration option 3
+
+## 🔒 Security Considerations
+
+- Security tip 1
+- Security tip 2
+- Security tip 3
+
+## 🔄 Persistence
+
+Data is stored in the `./data` directory. For proper backup:
+
+1. Stop the service container
+2. Backup the data directory
+3. Restart the container
+
+## 📱 Accessing the Service
+
+Once deployed and configured with Cloudflare Tunnel:
+- Access URL: `https://service.yourdomain.com`
+- Default credentials (if applicable): admin/password (CHANGE THESE!)
