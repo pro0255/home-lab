@@ -7,6 +7,5 @@ chmod +x *.sh
 
 docker network create homelab
 
-
 ./create-structure.sh
 ./deploy-portainer.sh
